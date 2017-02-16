@@ -36,5 +36,35 @@ namespace LaPrimitivaFacil
 
             Console.ReadLine();
         }
+        
+        // by Kailneg
+        // Method by Pawerino
+        public static String generarPrimitiva(int[] array, int minValue, int maxValue)
+        {
+            String  temp        = "";
+            Random  rnd         = new Random();
+            int     numeroRnd   = rnd.Next(minValue, maxValue);
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array.Length; j++)
+                {
+                    if (numeroRnd == array[j])
+                    {
+                        numeroRnd = rnd.Next(minValue, maxValue);
+                        j = -1;
+                    }
+                }
+                array[i] = numeroRnd;
+                numeroRnd = rnd.Next(minValue, maxValue);
+            }
+
+            foreach (int valor in array)
+            {
+                temp += valor + " ";
+            }
+
+            return temp;
+        }
     }
 }
